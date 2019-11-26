@@ -42,7 +42,7 @@ Fichier principal de simulation, permettant de simuler le résultat d'une élect
 
 #### Exemples
 
-1. Simuler une élection sur la base de la répartition en 6 arrondissements (scénario ayant effectivement eu lieu en 2017). On crée pour ce faire un `dict` qui fait correspondre à chaque district historique son arrondissement, et on le passe en argument de la fonction principale.
+1. Simuler une élection sur la base de la répartition en 6 arrondissements (scénario ayant effectivement eu lieu en 2017). On crée pour ce faire un `dict` qui fait correspondre à chaque district historique son arrondissement, et on le passe en argument de la fonction principale. Par ailleurs, la base de calcul pour la répartition des sièges est la population suisse de l'arrondissement (`col_proportion=Suisses`), on élit 130 députés (`num_deputes=130`) et le quorum est fixé à 8% (`quorum=0.08`) : il s'agit des circonstances effectivement appliquées pour cette élection.
 
         arrondissements = {
             'Goms':'ArrBrig',
