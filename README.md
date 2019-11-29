@@ -115,7 +115,7 @@ Fichier principal de simulation, permettant de simuler le résultat d'une élect
                  num_deputes=100,
                  map_communes= map_one_circ, # une seule circonscription
                  col_proportion='Population',
-                 quorum=0.03)
+                 quorum=0.00)
                  
     Cette exécution crée le fichier `./2017-scenarios/Unique-N100-C1-PPopulation-Q3.0.xlsx` avec les résultats partisans par district, et retourne le nombre de sièges de chaque parti:
     
@@ -128,4 +128,30 @@ Fichier principal de simulation, permettant de simuler le résultat d'une élect
          'Sièges PS': 14.0,
          'Sièges RCV': -0.0,
          'Sièges UDC': 17.0,
+         'Sièges Verts': 7.0}
+
+
+4. Idem que l'exemple précédent, mais en supprimant le quorum (quorum = 0%):
+
+        d = pd.read_excel('2017-resultats-communes-augmente.xlsx')
+        map_one_circ = {commune:'Unique' for commune,value in d['Commune'].to_dict().items() }
+        scenario('2017-resultats-communes-augmente.xlsx',
+                 './2017-scenarios/',
+                 'Unique',
+                 num_deputes=100,
+                 map_communes= map_one_circ, # une seule circonscription
+                 col_proportion='Population',
+                 quorum=0.00)
+                 
+    Cette exécution crée le fichier `./2017-scenarios/Unique-N100-C1-PPopulation-Q0.0.xlsx` avec les résultats partisans par district, et retourne le nombre de sièges de chaque parti:
+    
+            {'District': 'Unique',
+         'Scénario': 'Unique-N100-C1-PPopulation-Q0.0',
+         'Sièges CSP': 8.0,
+         'Sièges CVP': 10.0,
+         'Sièges PDC': 23.0,
+         'Sièges PLR': 20.0,
+         'Sièges PS': 14.0,
+         'Sièges RCV': 2.0,
+         'Sièges UDC': 16.0,
          'Sièges Verts': 7.0}
